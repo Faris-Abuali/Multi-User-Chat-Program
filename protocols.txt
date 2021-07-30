@@ -1,0 +1,41 @@
+Client & Server
+
+My program will provide approximatelty 9 commands: (register, deregister, login, logoff(quit), msg, msg-broadcast, join, leave, who-is-online(who-is-connectd)) 
+
+1. Client --> Server
+	Commands:
+		* register/deregister
+		* login/logoff 
+			(format: login<user><password>)
+			(format: logoff)
+		* who-is-online
+
+2. Client --> Client 
+	* direct messages (command: msg someone text...)
+	* group messages  (command: msg #topic text...)
+		**The sender client must 'join #topic' before trying to send, 
+		and then the message will be forwareded to all other clients who have joined this topic (or this chatroom in orther words).
+	* broadcast messages (command: msg-broadcast text...)
+
+The Interactive Client Commands:
+	login<user><password>
+	logoff
+	register<user><password>
+	derigister (The client must be first logged in in order to be able to derigister himself)
+	
+
+	msg <recipient> body...
+	i.e. 
+	    Ahmad: "msg Fares Hello, Fares. How are you today?" <-- sent
+	    Fares: "msg Ahmad Hello, Fares. How are you today?" <-- received
+
+	#topic <-- chatroom / group chat
+	join #topic (in order for a client to send messages to this group, he needs to join the group)
+	leave#topic
+	msg #topic body...
+	
+	send: msg #topic body... 
+	recv: msg #topic:login body
+
+
+	msg-broadcast body...
